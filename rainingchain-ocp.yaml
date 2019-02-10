@@ -1,0 +1,64 @@
+kind: List
+apiVersion: v1
+items:
+
+- kind: Route
+  apiVersion: v1
+  metadata:
+    creationTimestamp: null
+    labels:
+      app: rainingchain
+    name: rainingchain
+  spec:
+    host: rainingchain.ocp.foley.core
+    to:
+      kind: Service
+      name: rainingchain
+      weight: 100
+    wildcardPolicy: None
+  status:
+    ingress: []
+
+- kind: Service
+  apiVersion: v1
+  metadata:
+    labels:
+      app: rainingchain
+    name: rainingchain
+  spec:
+    ports:
+    - name: 3000-tcp
+      port: 3000
+      protocol: TCP
+      targetPort: 3000
+    selector:
+      app: rainingchain
+      deploymentconfig: rainingchain
+
+- kind: DeploymentConfig
+  apiVersion: v1
+  metadata:
+    labels:
+      app: rainingchain
+    name: rainingchain
+  spec:
+    replicas: 1
+    selector:
+      app: rainingchain
+      deploymentconfig: rainingchain
+    strategy:
+      resources: {}
+    template:
+      metadata:
+        labels:
+          app: rainingchain
+          deploymentconfig: rainingchain
+      spec:
+        containers:
+        - image: home:8083/docker/examples/rainingchain:latest
+          name: rainingchain
+          ports:
+          - containerPort: 3000
+            protocol: TCP
+    triggers:
+    - type: ConfigChange

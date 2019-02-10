@@ -1,6 +1,8 @@
 Raining Chain
 ==============
 
+Containerized Example for OpenShift*
+
 Raining Chain is a HTML5 MMORPG using Javascript, Canvas, NodeJS, MongoDb and Socket.io. Play now for free at [https://rainingchain.com/](https://rainingchain.com/).
 
 [![Raining Chain Trailer](http://i.imgur.com/Duqym7r.png)](https://youtu.be/EnwhuOsjFEY "Raining Chain Trailer")

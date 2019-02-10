@@ -9,7 +9,7 @@ global.onReady(function(){
 var Dialog = rootRequire('client','Dialog');
 
 Dialog.create('adminTool','Admin Tool',Dialog.Size(800,200),Dialog.Refresh(function(html,variable,param){
-	/*var ts_text = $('<input>').css({width:600});	
+	var ts_text = $('<input>').css({width:600});	
 	html.append('ts:',ts_text,$('<button>')
 		.html('Go')
 		.click(function(){
@@ -17,7 +17,7 @@ Dialog.create('adminTool','Admin Tool',Dialog.Size(800,200),Dialog.Refresh(funct
 			ts_text.val('');
 		})
 	);
-	html.append('<br>');*/
+	html.append('<br>');
 	
 	//###
 	html.append($('<button>')
